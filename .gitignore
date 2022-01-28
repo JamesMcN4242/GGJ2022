@@ -20,7 +20,8 @@ GGJ2022/[Mm]emoryCaptures/
 [Aa]ssets/Plugins/Editor/JetBrains*
 
 # Visual Studio cache directory
-.vs/
+GGJ2022/.vs/
+GGJ2022/.idea/
 
 # Gradle cache directory
 .gradle/
