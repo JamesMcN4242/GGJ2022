@@ -11,4 +11,9 @@ public class MenuState : FlowStateBase
         m_ui = m_menuUi;
         return m_menuUi != null;
     }
+
+    protected override void StartActiveState()
+    {
+        var objects = SpawnSystem.SpawnAllFindableEntities();
+    }
 }
