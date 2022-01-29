@@ -13,12 +13,21 @@ public static class SpawnSystem
 
     public static GameObject SpawnObject(SpawningPlacement placementInfo)
     {
+        Vector3 position = placementInfo.transform.position;
+        
         switch (placementInfo.Type)
         {
             case SpawningPlacement.SpawnType.PLAYER:
-                Vector3 position = placementInfo.transform.position;
+            {
                 var prefab = Resources.Load<GameObject>($"Prefabs/Player_{placementInfo.SpecificInformation}");
                 return Object.Instantiate(prefab, position, Quaternion.identity);
+            }
+
+            case SpawningPlacement.SpawnType.ENEMY:
+            {
+                var prefab = Resources.Load<GameObject>($"Prefabs/Enemies/Enemy{placementInfo.SpecificInformation}");
+                return Object.Instantiate(prefab, position, Quaternion.identity);
+            }
         }
         return null;
     }
