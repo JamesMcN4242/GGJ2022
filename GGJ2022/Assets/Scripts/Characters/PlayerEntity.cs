@@ -13,7 +13,7 @@ public class PlayerEntity : MonoBehaviour
     {
         Camera playerCamera = new GameObject($"Player{playerNumber}_Camera").AddComponent<Camera>();
         playerCamera.rect = new Rect(0.5f * (playerNumber - 1), 0f, 0.5f, 1f);
-        playerCamera.backgroundColor = playerNumber == 1 ? Color.cyan : Color.grey;
+        playerCamera.backgroundColor = (playerNumber + WorldFlags.ResetValue) % 2 == 0 ? Color.cyan : Color.grey;
         playerCamera.clearFlags = CameraClearFlags.SolidColor; //TODO: Skyboxes if possible time wise
 
         PlayerEntity entity = playerObj.AddComponent<PlayerEntity>();

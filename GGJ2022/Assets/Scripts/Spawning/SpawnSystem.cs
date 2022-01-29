@@ -19,7 +19,7 @@ public static class SpawnSystem
         {
             case SpawningPlacement.SpawnType.PLAYER:
             {
-                var prefab = Resources.Load<GameObject>($"Prefabs/Player_{placementInfo.SpecificInformation}");
+                var prefab = Resources.Load<GameObject>($"Prefabs/Player_{(placementInfo.SpecificInformation + WorldFlags.ResetValue) % 2 + 1}");
                 return Object.Instantiate(prefab, position, Quaternion.identity);
             }
 

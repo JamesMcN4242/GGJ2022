@@ -1,6 +1,6 @@
 ﻿using PersonalFramework;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 using static UnityEngine.Debug;
 
 public class MenuState : FlowStateBase
@@ -19,7 +19,7 @@ public class MenuState : FlowStateBase
         switch (message)
         {
             case string msg when msg == "play":
-                ControllingStateStack.ChangeState(new BaseGameState(), this);
+                SceneManager.LoadScene(1);
                 break;
             
             default:
