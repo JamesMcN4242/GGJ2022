@@ -2,10 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct PlayerEntity
+public class PlayerEntity : MonoBehaviour
 {
     public Camera PlayerCamera;
-    public GameObject GameObj;
     public Character CharacterData;
     public PlayerInput PlayerInputs;
     public HashSet<String> Inventory;
@@ -16,13 +15,12 @@ public struct PlayerEntity
         playerCamera.rect = new Rect(0.5f * (playerNumber - 1), 0f, 0.5f, 1f);
         playerCamera.backgroundColor = playerNumber == 1 ? Color.cyan : Color.grey;
         playerCamera.clearFlags = CameraClearFlags.SolidColor; //TODO: Skyboxes if possible time wise
-        
-        return new PlayerEntity()
-        {
-            GameObj = playerObj,
-            CharacterData = Resources.Load<Character>("Data/characterInput"),
-            PlayerInputs = Resources.Load<PlayerInput>($"Data/player{playerNumber}Input"),
-            PlayerCamera = playerCamera
-        };
+
+        PlayerEntity entity = playerObj.AddComponent<PlayerEntity>();
+        entity.CharacterData = Resources.Load<Character>("Data/characterInput");
+        entity.PlayerInputs = Resources.Load<PlayerInput>($"Data/player{playerNumber}Input");
+        entity.PlayerCamera = playerCamera;
+        entity.Inventory = new HashSet<string>();
+        return entity;
     }
 }

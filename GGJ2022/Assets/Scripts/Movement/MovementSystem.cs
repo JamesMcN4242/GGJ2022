@@ -8,8 +8,8 @@ public static class MovementSystem
     {
         foreach (var playerEntity in playerEntities)
         {
-            MovementInput(playerEntity.GameObj, playerEntity.PlayerInputs, playerEntity.CharacterData);
-            AssignCameraPosition(playerEntity.GameObj, playerEntity.PlayerCamera);
+            MovementInput(playerEntity.gameObject, playerEntity.PlayerInputs, playerEntity.CharacterData);
+            AssignCameraPosition(playerEntity.gameObject, playerEntity.PlayerCamera);
         }
     }
 
