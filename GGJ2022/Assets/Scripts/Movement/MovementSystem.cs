@@ -24,9 +24,27 @@ public static class MovementSystem
             movementDirection.x -= 1;
         }
 
-        if (Input.GetKey(inputControls.m_upKey))
+        if (Input.GetKeyDown(inputControls.m_upKey) )
         {
-            movementDirection.y += 1;
+            var playerEntity = player.GetComponent<PlayerEntity>();
+            Debug.Log($"player ability: {playerEntity.Ability}");
+
+            RaycastHit hit = default;
+            //TODO actioncounter + 1 wenn firstjump, acioncounter == 1 then actioncounter is set to 0
+            //if any other key is pressed than actioncounter is resetted
+            if (playerEntity.Ability == "DoubleJump" && playerEntity.actionCounter < 2 ||
+                Physics.Raycast(player.transform.position, Vector3.down, out hit, 1f, LayerMask.GetMask("Ground")))
+            {
+                if (hit.collider != null)
+                {
+                    Debug.Log($"----hit: {hit}");
+                }
+                if (playerEntity.Ability == "DoubleJump")
+                {
+                    playerEntity.actionCounter++;
+                }
+                player.GetComponent<Rigidbody>().AddForce(new Vector3(0f, character.jumpHeight, 0f));
+            }
         } else if (Input.GetKey(inputControls.m_downKey))
         {
             movementDirection.y -= 1;
@@ -42,7 +60,7 @@ public static class MovementSystem
     
     private static void AssignCameraPosition(GameObject playerObj, Camera playerCamera)
     {
-        Vector3 cameraOffset = new Vector3(0f, 0f, -30f);
+        Vector3 cameraOffset = new Vector3(0f, 0f, -20f);
         playerCamera.transform.position = Vector3.Lerp(playerCamera.transform.position,
             playerObj.transform.position + cameraOffset, 0.5f);
     }
