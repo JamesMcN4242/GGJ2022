@@ -4,6 +4,12 @@ using Object = UnityEngine.Object;
 
 public static class SpawnSystem
 {
+    private static string[] k_enemyPrefabNames = new[]
+    {
+        "Prefabs/Enemies/Flower",
+        "Prefabs/Enemies/Skeleton"
+    };
+    
     public static GameObject[] SpawnAllFindableEntities()
     {
         var spawnLocations = Object.FindObjectsOfType<SpawningPlacement>();
@@ -25,7 +31,7 @@ public static class SpawnSystem
 
             case SpawningPlacement.SpawnType.ENEMY:
             {
-                var prefab = Resources.Load<GameObject>($"Prefabs/Enemies/Enemy{placementInfo.SpecificInformation}");
+                var prefab = Resources.Load<GameObject>(k_enemyPrefabNames[placementInfo.SpecificInformation - 1]);
                 return Object.Instantiate(prefab, position, Quaternion.identity);
             }
         }

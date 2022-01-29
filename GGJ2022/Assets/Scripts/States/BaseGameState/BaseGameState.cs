@@ -33,7 +33,7 @@ public class BaseGameState : FlowStateBase
 
         var enemies = Array.FindAll(objects, o => o.GetComponent<CombatInteraction>() != null);
         m_enemies = Array.ConvertAll(enemies,
-            input => new EnemyEntity(input, Resources.Load<EnemyData>($"Data/enemyData/Enemy{input.name[5]}")));
+            input => new EnemyEntity(input, Resources.Load<EnemyData>($"Data/enemyData/{input.name.Split('(')[0]}")));
 
         mainCam.SetActive(false);
     }
@@ -48,11 +48,12 @@ public class BaseGameState : FlowStateBase
         {
             ResetLevel();
         }
-        else if (m_portalSystem.AreBothPlayersIn)
+        else if (m_portalSystem.AreBothPlayersIn && WorldFlags.LevelConditionsMet(m_players))
         {
             // Go the next level or finish screen
             int currentScene = SceneManager.GetActiveScene().buildIndex;
             WorldFlags.ResetValue++;
+            WorldFlags.LevelIteration++;
             SceneManager.LoadScene(currentScene+1);
         }
     }
