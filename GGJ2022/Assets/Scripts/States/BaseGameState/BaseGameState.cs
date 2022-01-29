@@ -1,30 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using PersonalFramework;
 using UnityEngine;
 
 public class BaseGameState : FlowStateBase
 {
-    private GameObject player = null;
-    private Character character = null;
-    private PlayerInput playerInput = null;
-    private GameObject player1 = null;
-    private Character character1 = null;
-    private PlayerInput playerInput1 = null;
+    private PlayerEntity[] m_players = null;
 
     protected override void StartPresentingState()
     {
+        GameObject mainCam = GameObject.Find("MainCamera");
+        
         var objects = SpawnSystem.SpawnAllFindableEntities();
-        (player, player1) = (objects[0], objects[1]);
-        character1 = character = Resources.Load<Character>("Data/characterInput");
-        playerInput = Resources.Load<PlayerInput>("Data/playerOneInput");
-        playerInput1 = Resources.Load<PlayerInput>("Data/playerTwoInput");
+        m_players = new PlayerEntity[2]
+        {
+            PlayerEntity.CreatePlayerEntity(objects[0], 1),
+            PlayerEntity.CreatePlayerEntity(objects[1], 2)
+        };
+        
+        mainCam.SetActive(false);
     }
     
     protected override void UpdateActiveState()
     {
         base.UpdateActiveState();
-        MovementSystem.MovementInput(player, playerInput, character);
-        MovementSystem.MovementInput(player1, playerInput1, character1);
+        MovementSystem.UpdatePlayerInputs(m_players);
     }
 }

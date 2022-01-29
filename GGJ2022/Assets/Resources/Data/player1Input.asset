@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fcfa93606be4ded97ea91a88956453e, type: 3}
-  m_Name: playerTwoInput
+  m_Name: player1Input
   m_EditorClassIdentifier: 
-  m_leftKey: 276
-  m_rightKey: 275
-  m_upKey: 273
-  m_downKey: 274
+  m_leftKey: 97
+  m_rightKey: 100
+  m_upKey: 119
+  m_downKey: 115
