@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using PersonalFramework;
 using UnityEngine;
 
 public class AddToInventory : MonoBehaviour
@@ -9,7 +10,9 @@ public class AddToInventory : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Object with name {other.name} entered the trigger");
-            // gameObject TODO: add gameObject to inventory
+            var player = other.GetComponent<PlayerEntity>();
+            player.Inventory.Add(gameObject.name);
+            Object.Destroy(gameObject);
         }
     }
 

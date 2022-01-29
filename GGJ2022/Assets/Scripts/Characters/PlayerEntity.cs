@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class PlayerEntity : MonoBehaviour
@@ -8,7 +9,8 @@ public class PlayerEntity : MonoBehaviour
     public Character CharacterData;
     public PlayerInput PlayerInputs;
     public HashSet<String> Inventory;
-
+    public String Ability;
+    public int actionCounter; 
     public static PlayerEntity CreatePlayerEntity(GameObject playerObj, int playerNumber)
     {
         Camera playerCamera = new GameObject($"Player{playerNumber}_Camera").AddComponent<Camera>();
@@ -21,6 +23,8 @@ public class PlayerEntity : MonoBehaviour
         entity.PlayerInputs = Resources.Load<PlayerInput>($"Data/player{playerNumber}Input");
         entity.PlayerCamera = playerCamera;
         entity.Inventory = new HashSet<string>();
+        entity.Ability = playerNumber == 1 ? "Dash" : "DoubleJump";
+        entity.actionCounter = 0;
         return entity;
     }
 }

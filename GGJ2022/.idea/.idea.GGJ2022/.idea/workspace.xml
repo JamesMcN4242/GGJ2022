@@ -2,34 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ebaa9a4-23af-4d98-8ce2-93a7711a647a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/New Terrain.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/New Terrain.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Data/environment.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Data/environment/Terrain.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Data/environment/Terrain.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Data/environment/ingredients.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Data/environment/ingredients/single bone.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Data/environment/ingredients/single bone.psd.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Data/single bone.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Data/single bone.psd.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InteractionDistanceChecks.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InteractionDistanceChecks/AddToInventory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InteractionDistanceChecks/AddToInventory.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InteractionDistanceChecks/CrushBones.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InteractionDistanceChecks/CrushBones.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TerrainData_1f00ae5d-22d9-4985-b2d9-187f0851505d.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TerrainData_1f00ae5d-22d9-4985-b2d9-187f0851505d.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TerrainData_727abfc7-8bc1-4cac-874f-7c2f78bc32a0.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TerrainData_727abfc7-8bc1-4cac-874f-7c2f78bc32a0.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TerrainData_f11cee9a-3f6d-4b41-8ceb-fd3414c118b2.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TerrainData_f11cee9a-3f6d-4b41-8ceb-fd3414c118b2.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ2022/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ2022/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player_1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player_1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player_2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player_2.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/PlayerEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/PlayerEntity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement/MovementSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/MovementSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/States/BaseGameState/BaseGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/States/BaseGameState/BaseGameState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,10 +25,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d4bb098cce9a4793afcca824c1d0ea0113c000/3f/d0b624f0/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/Character.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -92,10 +67,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="6263">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="6263" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -112,7 +87,8 @@
       <option name="presentableId" value="Default" />
       <updated>1643399377938</updated>
       <workItem from="1643399413124" duration="1580000" />
-      <workItem from="1643412267223" duration="5421000" />
+      <workItem from="1643412267223" duration="12282000" />
+      <workItem from="1643473536900" duration="1760000" />
     </task>
     <servers />
   </component>

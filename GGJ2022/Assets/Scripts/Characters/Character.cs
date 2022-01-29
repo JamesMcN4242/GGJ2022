@@ -6,6 +6,6 @@ using UnityEngine;
 public class Character : ScriptableObject
 {
     public float speed = 2;
-    public float jumpHeight = 1;
+    public float jumpHeight = 2;
     public float health = 100;
 }

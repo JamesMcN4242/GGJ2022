@@ -16,6 +16,8 @@ public static class MovementSystem
     private static void MovementInput(GameObject player, PlayerInput inputControls, Character character)
     {
         Vector3 movementDirection = Vector3.zero;
+        var playerEntity = player.GetComponent<PlayerEntity>();
+        var doubleJump = playerEntity.Ability == "DoubleJump";
         if (Input.GetKey(inputControls.m_rightKey))
         {
             movementDirection.x += 1;
@@ -24,14 +26,26 @@ public static class MovementSystem
             movementDirection.x -= 1;
         }
 
-        if (Input.GetKey(inputControls.m_upKey))
+        if (Input.GetKeyDown(inputControls.m_upKey) )
         {
-            movementDirection.y += 1;
+
+            RaycastHit hit = default;
+            bool onGround = Physics.Raycast(player.transform.position, Vector3.down, out hit, 1f,
+                LayerMask.GetMask("Ground"));
+
+            if (onGround && doubleJump) playerEntity.actionCounter = 0;
+            
+            if (onGround || doubleJump && playerEntity.actionCounter < 2)
+            {
+                playerEntity.actionCounter++;
+                player.GetComponent<Rigidbody>().AddForce(new Vector3(0f, character.jumpHeight, 0f));
+            }
+
         } else if (Input.GetKey(inputControls.m_downKey))
         {
             movementDirection.y -= 1;
         }
-        
+
         AssignMovement(player, movementDirection.normalized, character.speed);
     }
     
@@ -42,7 +56,7 @@ public static class MovementSystem
     
     private static void AssignCameraPosition(GameObject playerObj, Camera playerCamera)
     {
-        Vector3 cameraOffset = new Vector3(0f, 0f, -30f);
+        Vector3 cameraOffset = new Vector3(0f, 0f, -20f);
         playerCamera.transform.position = Vector3.Lerp(playerCamera.transform.position,
             playerObj.transform.position + cameraOffset, 0.5f);
     }
