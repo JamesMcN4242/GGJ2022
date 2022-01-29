@@ -51,12 +51,12 @@ public static class MovementSystem
     
     public static void AssignMovement(GameObject gameObject1, Vector3 direction, float speed)
     {
-        gameObject1.transform.position += direction * Time.deltaTime * speed;
+        gameObject1.transform.position += direction * (Time.deltaTime * speed);
     }
     
     private static void AssignCameraPosition(GameObject playerObj, Camera playerCamera)
     {
-        Vector3 cameraOffset = new Vector3(0f, 0f, -20f);
+        Vector3 cameraOffset = new Vector3(0f, 4f, -10f);
         playerCamera.transform.position = Vector3.Lerp(playerCamera.transform.position,
             playerObj.transform.position + cameraOffset, 0.5f);
     }
