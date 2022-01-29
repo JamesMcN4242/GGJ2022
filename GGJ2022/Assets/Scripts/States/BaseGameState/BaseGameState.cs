@@ -8,7 +8,7 @@ public class BaseGameState : FlowStateBase
     private PlayerEntity[] m_players = null;
     private EnemyEntity[] m_enemies = null;
     private BaseGameUI m_stateUI = null;
-    private ResetTimer m_resetTimer = new ResetTimer(10f);
+    private ResetTimer m_resetTimer = new ResetTimer(1000f);
     private PortalSystem m_portalSystem = new PortalSystem();
 
     protected override bool AquireUIFromScene()
