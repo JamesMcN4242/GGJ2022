@@ -7,7 +7,7 @@ public class BaseGameState : FlowStateBase
 
     protected override void StartPresentingState()
     {
-        GameObject mainCam = GameObject.Find("MainCamera");
+        GameObject mainCam = GameObject.Find("Main Camera");
         
         var objects = SpawnSystem.SpawnAllFindableEntities();
         m_players = new PlayerEntity[2]

@@ -42,7 +42,7 @@ public static class MovementSystem
     
     private static void AssignCameraPosition(GameObject playerObj, Camera playerCamera)
     {
-        Vector3 cameraOffset = new Vector3(0f, 0f, -10f);
+        Vector3 cameraOffset = new Vector3(0f, 0f, -30f);
         playerCamera.transform.position = Vector3.Lerp(playerCamera.transform.position,
             playerObj.transform.position + cameraOffset, 0.5f);
     }

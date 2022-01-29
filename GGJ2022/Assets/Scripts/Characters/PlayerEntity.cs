@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public struct PlayerEntity
@@ -6,6 +8,7 @@ public struct PlayerEntity
     public GameObject GameObj;
     public Character CharacterData;
     public PlayerInput PlayerInputs;
+    public HashSet<String> Inventory;
 
     public static PlayerEntity CreatePlayerEntity(GameObject playerObj, int playerNumber)
     {
