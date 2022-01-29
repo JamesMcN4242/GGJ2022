@@ -9,6 +9,7 @@ public class BaseGameState : FlowStateBase
     private EnemyEntity[] m_enemies = null;
     private BaseGameUI m_stateUI = null;
     private ResetTimer m_resetTimer = new ResetTimer(10f);
+    private PortalSystem m_portalSystem = new PortalSystem();
 
     protected override bool AquireUIFromScene()
     {
@@ -46,6 +47,12 @@ public class BaseGameState : FlowStateBase
         if (WorldFlags.PlayerDead || !m_resetTimer.HasTimeLeft)
         {
             ResetLevel();
+        }
+        else if (m_portalSystem.AreBothPlayersIn)
+        {
+            // Go the next level or finish screen
+            int currentScene = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentScene+1);
         }
     }
 

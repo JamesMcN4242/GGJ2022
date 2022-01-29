@@ -4,7 +4,7 @@ using UnityEngine;
 public class PortalSystem
 {
     private PortalTrigger[] m_portalTriggers;
-    public bool AreBothPlayersIn => m_portalTriggers.All(trigger => trigger.PlayerInside);
+    public bool AreBothPlayersIn => m_portalTriggers.Count(trigger => trigger.PlayerInside) == 2;
 
     public PortalSystem()
     {
