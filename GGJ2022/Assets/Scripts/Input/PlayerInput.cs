@@ -7,4 +7,5 @@ public class PlayerInput : ScriptableObject
     public KeyCode m_rightKey = KeyCode.D;
     public KeyCode m_upKey = KeyCode.W;
     public KeyCode m_downKey = KeyCode.S;
+    public KeyCode m_shootingKey = KeyCode.Space;
 }

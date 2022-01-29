@@ -23,7 +23,7 @@ public class PlayerEntity : MonoBehaviour
         entity.PlayerInputs = Resources.Load<PlayerInput>($"Data/player{playerNumber}Input");
         entity.PlayerCamera = playerCamera;
         entity.Inventory = new HashSet<string>();
-        entity.Ability = playerNumber == 1 ? "Dash" : "DoubleJump";
+        entity.Ability = playerNumber == 1 ? "DoubleJump" : "Shoot";
         entity.actionCounter = 0;
         return entity;
     }
