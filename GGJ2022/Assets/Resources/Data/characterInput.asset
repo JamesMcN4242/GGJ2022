@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: characterInput
   m_EditorClassIdentifier: 
   speed: 2
-  jumpHeight: 200
+  jumpHeight: 650
   health: 100
