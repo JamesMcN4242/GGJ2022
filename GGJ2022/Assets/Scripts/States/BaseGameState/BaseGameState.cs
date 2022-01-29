@@ -52,6 +52,7 @@ public class BaseGameState : FlowStateBase
         {
             // Go the next level or finish screen
             int currentScene = SceneManager.GetActiveScene().buildIndex;
+            WorldFlags.ResetValue++;
             SceneManager.LoadScene(currentScene+1);
         }
     }

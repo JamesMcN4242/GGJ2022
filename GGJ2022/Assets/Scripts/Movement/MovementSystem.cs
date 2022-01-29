@@ -3,13 +3,23 @@ using System.Collections.Generic;
 using PersonalFramework;
 using UnityEngine;
 
+using static LadderMovementSystem;
+
 public static class MovementSystem
 {
     public static void UpdatePlayerInputs(PlayerEntity[] playerEntities)
     {
         foreach (var playerEntity in playerEntities)
         {
-            MovementInput(playerEntity.gameObject, playerEntity.PlayerInputs, playerEntity.CharacterData);
+            if (WorldFlags.PlayersOnLadders.Contains(playerEntity.gameObject.name))
+            {
+                LadderMovement(playerEntity.gameObject, playerEntity.PlayerInputs, playerEntity.CharacterData);
+            }
+            else
+            {
+                MovementInput(playerEntity.gameObject, playerEntity.PlayerInputs, playerEntity.CharacterData);
+            }
+
             if (playerEntity.Ability == "Shoot")
             {
                 SpecialAbilityInput(playerEntity.gameObject, playerEntity.PlayerInputs, playerEntity.CharacterData);

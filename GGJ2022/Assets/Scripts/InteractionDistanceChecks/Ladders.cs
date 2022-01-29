@@ -6,7 +6,8 @@ public class Ladders : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            WorldFlags.PlayersOnLadders.Add(other.gameObject);
+            WorldFlags.PlayersOnLadders.Add(other.name);
+            other.GetComponent<Rigidbody>().useGravity = false;
         }
     }
 
@@ -14,7 +15,8 @@ public class Ladders : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            WorldFlags.PlayersOnLadders.Remove(other.gameObject);
+            WorldFlags.PlayersOnLadders.Remove(other.name);
+            other.GetComponent<Rigidbody>().useGravity = true;
         }
     }
 }
