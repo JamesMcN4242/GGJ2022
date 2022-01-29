@@ -16,6 +16,8 @@ public static class MovementSystem
     private static void MovementInput(GameObject player, PlayerInput inputControls, Character character)
     {
         Vector3 movementDirection = Vector3.zero;
+        var playerEntity = player.GetComponent<PlayerEntity>();
+        var doubleJump = playerEntity.Ability == "DoubleJump";
         if (Input.GetKey(inputControls.m_rightKey))
         {
             movementDirection.x += 1;
@@ -26,30 +28,24 @@ public static class MovementSystem
 
         if (Input.GetKeyDown(inputControls.m_upKey) )
         {
-            var playerEntity = player.GetComponent<PlayerEntity>();
-            Debug.Log($"player ability: {playerEntity.Ability}");
 
             RaycastHit hit = default;
-            //TODO actioncounter + 1 wenn firstjump, acioncounter == 1 then actioncounter is set to 0
-            //if any other key is pressed than actioncounter is resetted
-            if (playerEntity.Ability == "DoubleJump" && playerEntity.actionCounter < 2 ||
-                Physics.Raycast(player.transform.position, Vector3.down, out hit, 1f, LayerMask.GetMask("Ground")))
+            bool onGround = Physics.Raycast(player.transform.position, Vector3.down, out hit, 1f,
+                LayerMask.GetMask("Ground"));
+
+            if (onGround && doubleJump) playerEntity.actionCounter = 0;
+            
+            if (onGround || doubleJump && playerEntity.actionCounter < 2)
             {
-                if (hit.collider != null)
-                {
-                    Debug.Log($"----hit: {hit}");
-                }
-                if (playerEntity.Ability == "DoubleJump")
-                {
-                    playerEntity.actionCounter++;
-                }
+                playerEntity.actionCounter++;
                 player.GetComponent<Rigidbody>().AddForce(new Vector3(0f, character.jumpHeight, 0f));
             }
+
         } else if (Input.GetKey(inputControls.m_downKey))
         {
             movementDirection.y -= 1;
         }
-        
+
         AssignMovement(player, movementDirection.normalized, character.speed);
     }
     

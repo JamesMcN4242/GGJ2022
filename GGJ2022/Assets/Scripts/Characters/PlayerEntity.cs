@@ -24,6 +24,7 @@ public class PlayerEntity : MonoBehaviour
         entity.PlayerCamera = playerCamera;
         entity.Inventory = new HashSet<string>();
         entity.Ability = playerNumber == 1 ? "Dash" : "DoubleJump";
+        entity.actionCounter = 0;
         return entity;
     }
 }
