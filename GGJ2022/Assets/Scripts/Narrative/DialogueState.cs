@@ -1,14 +1,16 @@
-﻿using PersonalFramework;
+﻿using System.Collections.Generic;
+using PersonalFramework;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogueState : FlowStateBase
 {
     private DialogueUI m_dialogueUI;
-    private string m_message;
+    private Queue<string> m_messages;
 
-    public DialogueState(string textToDisplay)
+    public DialogueState(Queue<string> textToDisplay)
     {
-        m_message = textToDisplay;
+        m_messages = textToDisplay;
     }
 
     protected override bool AquireUIFromScene()
@@ -20,14 +22,21 @@ public class DialogueState : FlowStateBase
 
     protected override void StartPresentingState()
     {
-        m_dialogueUI.UpdateText(m_message);
+        m_dialogueUI.UpdateText(m_messages.Dequeue());
     }
 
     protected override void UpdateActiveState()
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            ControllingStateStack.PopState(this);
+            if (m_messages.Count > 0)
+            {
+                m_dialogueUI.UpdateText(m_messages.Dequeue());
+            }
+            else
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
     }
 }
