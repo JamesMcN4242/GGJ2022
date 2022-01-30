@@ -37,7 +37,20 @@ public class BaseGameState : FlowStateBase
 
         mainCam.SetActive(false);
     }
-    
+
+    protected override void StartActiveState()
+    {
+        switch (WorldFlags.LevelIteration)
+        {
+            case 1:
+                if (WorldFlags.ResetValue == 1)
+                {
+                    ControllingStateStack.PushState(new DialogueState("Lets go bone bois"));
+                }
+                break;
+        }
+    }
+
     protected override void UpdateActiveState()
     {
         MovementSystem.UpdatePlayerInputs(m_players);
