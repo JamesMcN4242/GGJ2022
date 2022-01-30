@@ -6,6 +6,7 @@ public class ProjectileController: MonoBehaviour
 
     private void Start()
     {
+        AudioQuickFire.PlayAudioClip("Audio/pewpew");
         Destroy(gameObject, 10);
     }
 
