@@ -14,6 +14,7 @@ public static class WorldFlags
         switch (LevelIteration)
         {
             case 1:
+                conditionsMet = true;
                 break;
             
             case 2:
