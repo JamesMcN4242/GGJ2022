@@ -39,11 +39,17 @@ public class CrushBones : MonoBehaviour
             } else if (jumpedOnCounter >= 3)
             {
                 jumpedOnCounter = 0;
-                var crushedBonesPosition = gameObject.transform.position;
-                var spawnLocation = new Vector3(crushedBonesPosition.x, crushedBonesPosition.y + 1f, crushedBonesPosition.z);
-                
+                var crushedItemPosition = gameObject.transform.position;
+                var spawnLocation = new Vector3(crushedItemPosition.x, crushedItemPosition.y + 1f, crushedItemPosition.z);
+                var gameObjectName = gameObject.name;
                 Destroy(gameObject);
-                Object.Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/crushed bones"), spawnLocation, Quaternion.identity);
+                if (gameObjectName.Contains("bone"))
+                {
+                    Object.Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/crushed bones"), spawnLocation, Quaternion.identity);
+                } else if (gameObjectName.Contains("flower"))
+                {
+                    Object.Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/crushed flower"), spawnLocation, Quaternion.identity);
+                }
             }
             //staying player: 0.184
             //bone 0.30 y-axis position
