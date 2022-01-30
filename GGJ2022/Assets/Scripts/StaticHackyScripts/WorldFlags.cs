@@ -18,6 +18,10 @@ public static class WorldFlags
                 break;
             
             case 2:
+                var player1Postion = entities[0].transform.position;
+                var player2Postion = entities[1].transform.position;
+                entities[1].transform.position = player1Postion;
+                entities[0].transform.position = player2Postion;
                 break;
         }
 

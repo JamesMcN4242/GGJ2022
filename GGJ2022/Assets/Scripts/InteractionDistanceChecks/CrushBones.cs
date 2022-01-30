@@ -31,8 +31,6 @@ public class CrushBones : MonoBehaviour
             //to fullfill criteria(like being 2m away, being in the air and 0.1m away being on top), this has to be
             //done eg 3 times so that bone gets crushed and new mesh gets spawend
             var player = other.GetComponentInParent<PlayerEntity>();
-            Debug.Log( "player position y" + other.transform.position.y);
-            Debug.Log( "player localPosition y" + gameObject.transform.localPosition.y);
             if ((other.transform.position.y - gameObject.transform.position.y) > 0.6f)
             {
                 jumpedOnCounter++;
@@ -45,10 +43,12 @@ public class CrushBones : MonoBehaviour
                 Destroy(gameObject);
                 if (gameObjectName.Contains("bone"))
                 {
-                    Object.Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/crushed bones"), spawnLocation, Quaternion.identity);
+                    var obj = Object.Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/crushed bones"), spawnLocation, Quaternion.identity);
+                    DontDestroyOnLoad(obj);
                 } else if (gameObjectName.Contains("flower"))
                 {
-                    Object.Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/crushed flower"), spawnLocation, Quaternion.identity);
+                    var obj = Object.Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/crushed flower"), spawnLocation, Quaternion.identity);
+                    DontDestroyOnLoad(obj);
                 }
             }
             //staying player: 0.184

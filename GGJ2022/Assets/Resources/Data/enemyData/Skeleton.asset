@@ -15,4 +15,4 @@ MonoBehaviour:
   m_idleSprites: []
   m_movingSprites: []
   m_speed: 5
-  m_maxXRangeMovement: 0
+  m_maxXRangeMovement: 3
