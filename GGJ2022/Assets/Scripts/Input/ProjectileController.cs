@@ -21,6 +21,9 @@ public class ProjectileController: MonoBehaviour
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
+        } else if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            Destroy(gameObject);
         }
     }
 }

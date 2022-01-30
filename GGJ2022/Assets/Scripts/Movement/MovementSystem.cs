@@ -33,19 +33,30 @@ public static class MovementSystem
         Vector3 movementDirection = Vector3.zero;
         var playerEntity = player.GetComponent<PlayerEntity>();
         var doubleJump = playerEntity.Ability == "DoubleJump";
-        bool onGround = Physics.Raycast(player.transform.position, Vector3.down, out RaycastHit hit, 0.8f,
+        RaycastHit hit = default; 
+        bool onGround = Physics.Raycast(player.transform.position, Vector3.down, out  hit, 0.8f,
             LayerMask.GetMask("Ground"));
         if (Input.GetKey(inputControls.m_rightKey))
         {
+            bool barrierRight = Physics.Raycast(player.transform.position, Vector3.right, out hit, 1f,
+                LayerMask.GetMask("Ground"));
             player.GetComponentInChildren<SpriteRenderer>().flipX = true;
             if (player.name.EndsWith("2(Clone)"))
             {
                 player.GetComponentInChildren<MeshRenderer>().transform.localPosition = new Vector3(-1.12f, -0.79f, -0.03649405f);
             }
-            movementDirection.x += 1;
+            if (!barrierRight)
+            {
+                movementDirection.x += 1;
+            }
         } else if (Input.GetKey(inputControls.m_leftKey))
         {
-            movementDirection.x -= 1;
+            bool barrierLeft = Physics.Raycast(player.transform.position, Vector3.left, out hit, 1f,
+                LayerMask.GetMask("Ground"));
+            if (!barrierLeft)
+            {
+                movementDirection.x -= 1;
+            }
             // player.GetComponent<Rigidbody>().-1.12
             player.GetComponentInChildren<SpriteRenderer>().flipX = false;
             if (player.name.EndsWith("2(Clone)"))
