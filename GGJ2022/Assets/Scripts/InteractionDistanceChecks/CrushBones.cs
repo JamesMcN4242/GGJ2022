@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CrushBones : MonoBehaviour
 {
+    public int jumpedOnCounter = 0;
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -17,7 +18,6 @@ public class CrushBones : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("Object with name {other.name} left the trigger");
         }
     }
 
@@ -30,6 +30,20 @@ public class CrushBones : MonoBehaviour
             //TODO compare y-axis of other and gameObject, to be crushed the y-axis of other has
             //to fullfill criteria(like being 2m away, being in the air and 0.1m away being on top), this has to be
             //done eg 3 times so that bone gets crushed and new mesh gets spawend
+            var player = other.GetComponentInParent<PlayerEntity>();
+            Debug.Log( "player position y" + other.transform.position.y);
+            Debug.Log( "player localPosition y" + gameObject.transform.localPosition.y);
+            if ((other.transform.position.y - gameObject.transform.position.y) > 0.6f)
+            {
+                jumpedOnCounter++;
+            } else if (jumpedOnCounter >= 3)
+            {
+                jumpedOnCounter = 0;
+                Destroy(gameObject);
+                //TODO spawn crushed bones
+            }
+            //staying player: 0.184
+            //bone 0.30 y-axis position
         }
     }
 }
