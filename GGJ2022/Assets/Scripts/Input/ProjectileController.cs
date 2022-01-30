@@ -18,11 +18,8 @@ public class ProjectileController: MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            
-        // Debug.Log("Object with name {other.name} entered the trigger");
-        // var enemy = other.GetComponentInParent<PlayerEntity>();
-        // player.Inventory.Add(gameObject.name);
-        // Object.Destroy(gameObject);
+            Destroy(other.gameObject);
+            Destroy(gameObject);
         }
     }
 }

@@ -6,7 +6,7 @@ public static class EnemySystem
    {
       foreach (var enemy in entities)
       {
-         if (enemy.m_enemyData.m_maxXRangeMovement == 0f) continue;
+         if (enemy.m_gameObject == null || enemy.m_enemyData.m_maxXRangeMovement == 0f) continue;
          
          Vector3 dir = enemy.m_movingLeft ? Vector3.left : Vector3.right;
          MovementSystem.AssignMovement(enemy.m_gameObject, dir, enemy.m_enemyData.m_speed);

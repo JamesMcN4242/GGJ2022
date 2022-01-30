@@ -60,13 +60,16 @@ public static class MovementSystem
             bool onGround = Physics.Raycast(player.transform.position, Vector3.down, out hit, 0.8f,
                 LayerMask.GetMask("Ground"));
             Debug.Log("onGround: " + onGround);
+            Debug.Log("actionCounter: " + playerEntity.actionCounter);
 
             if (onGround && doubleJump) playerEntity.actionCounter = 0;
             
             if (onGround || doubleJump && playerEntity.actionCounter < 2)
             {
-                playerEntity.actionCounter++;
-                player.GetComponent<Rigidbody>().AddForce(new Vector3(0f, character.jumpHeight, 0f));
+                var jumpHeight = character.jumpHeight;
+                if (playerEntity.actionCounter > 0 && doubleJump) jumpHeight = 400;
+                ++playerEntity.actionCounter;
+                player.GetComponent<Rigidbody>().AddForce(new Vector3(0f, jumpHeight, 0f));
             }
 
         } else if (Input.GetKey(inputControls.m_downKey))
