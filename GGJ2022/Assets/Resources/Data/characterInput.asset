@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1306217b7d124cacbb635f593ed5c80, type: 3}
   m_Name: characterInput
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 15
   jumpHeight: 650
   health: 100

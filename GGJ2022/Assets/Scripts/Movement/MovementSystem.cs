@@ -33,6 +33,8 @@ public static class MovementSystem
         Vector3 movementDirection = Vector3.zero;
         var playerEntity = player.GetComponent<PlayerEntity>();
         var doubleJump = playerEntity.Ability == "DoubleJump";
+        bool onGround = Physics.Raycast(player.transform.position, Vector3.down, out RaycastHit hit, 0.8f,
+            LayerMask.GetMask("Ground"));
         if (Input.GetKey(inputControls.m_rightKey))
         {
             player.GetComponentInChildren<SpriteRenderer>().flipX = true;
@@ -56,9 +58,8 @@ public static class MovementSystem
         if (Input.GetKeyDown(inputControls.m_upKey) )
         {
 
-            RaycastHit hit = default;
-            bool onGround = Physics.Raycast(player.transform.position, Vector3.down, out hit, 0.8f,
-                LayerMask.GetMask("Ground"));
+            
+            
             Debug.Log("onGround: " + onGround);
             Debug.Log("actionCounter: " + playerEntity.actionCounter);
 
@@ -74,7 +75,10 @@ public static class MovementSystem
 
         } else if (Input.GetKey(inputControls.m_downKey))
         {
-            movementDirection.y -= 1;
+            if (!onGround)
+            {
+                movementDirection.y -= 1;
+            }
         }
 
         AssignMovement(player, movementDirection.normalized, character.speed);
