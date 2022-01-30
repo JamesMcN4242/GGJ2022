@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6ebaa9a4-23af-4d98-8ce2-93a7711a647a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ2022/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ2022/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/enemyData/Skeleton.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/enemyData/Skeleton.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InteractionDistanceChecks/CrushBones.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InteractionDistanceChecks/CrushBones.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/States/BaseGameState/BaseGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/States/BaseGameState/BaseGameState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticHackyScripts/WorldFlags.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticHackyScripts/WorldFlags.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,10 +70,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="99587">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="99587" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -90,7 +91,7 @@
       <updated>1643399377938</updated>
       <workItem from="1643399413124" duration="1580000" />
       <workItem from="1643412267223" duration="12282000" />
-      <workItem from="1643473536900" duration="24288000" />
+      <workItem from="1643473536900" duration="25304000" />
     </task>
     <servers />
   </component>
@@ -114,5 +115,24 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/StaticHackyScripts/WorldFlags.cs</url>
+          <line>14</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/StaticHackyScripts/WorldFlags.cs" initialLine="14" containingFunctionPresentation="method 'LevelConditionsMet'">
+            <startOffsets>
+              <option value="464" />
+            </startOffsets>
+            <endOffsets>
+              <option value="487" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -57,7 +57,7 @@ public class BaseGameState : FlowStateBase
         {
             ResetLevel();
         }
-        else if (m_portalSystem.AreBothPlayersIn && WorldFlags.LevelConditionsMet(m_players))
+        else if (m_portalSystem.AreBothPlayersIn && WorldFlags.LevelConditionsMet(m_players, WorldFlags.ResetValue % 2 == 0? skullsToCollect : flowersToCollect, WorldFlags.ResetValue % 2 == 0?  flowersToCollect: skullsToCollect))
         {
             // Go the next level or finish screen
             int currentScene = SceneManager.GetActiveScene().buildIndex;
@@ -65,12 +65,15 @@ public class BaseGameState : FlowStateBase
             WorldFlags.LevelIteration++;
             SceneManager.LoadScene(currentScene+1);
         }
+
+        WorldFlags.timesSwitch += Time.deltaTime;
     }
 
     protected override void FixedUpdateActiveState()
     {
         m_stateUI.UpdateTimerFill(m_resetTimer.PortionRemaining);
         m_stateUI.UpdateCollectableText(m_players[0].Inventory.Count, WorldFlags.ResetValue % 2 == 0? skullsToCollect : flowersToCollect, m_players[1].Inventory.Count, WorldFlags.ResetValue % 2 == 0? flowersToCollect:skullsToCollect);
+        
     }
 
     private void ResetLevel()
