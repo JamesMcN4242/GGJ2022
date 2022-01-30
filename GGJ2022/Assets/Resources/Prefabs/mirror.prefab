@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3822118022091343808}
   - component: {fileID: 3822118022091343815}
+  - component: {fileID: 6263617973756001662}
+  - component: {fileID: 3390750237851430163}
   m_Layer: 0
   m_Name: mirror
   m_TagString: Untagged
@@ -82,3 +84,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6263617973756001662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3822118022091343814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75cba959e71e2f5429554696bac47e82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerInside: 0
+--- !u!65 &3390750237851430163
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3822118022091343814}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.88, y: 3.73, z: 5}
+  m_Center: {x: -0.31, y: 0.07, z: 0}
